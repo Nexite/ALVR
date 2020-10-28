@@ -1,6 +1,6 @@
 define([
     "i18n!app/nls/settings",
-    "lib/selectal",
+    "js/lib/selectal.js",
     "json!../../audio_devices",
     "json!app/resources/HTCVive.json",
     "json!app/resources/OculusRift.json",

@@ -1,5 +1,5 @@
 define([
-    "lib/lodash",
+    "js/lib/lodash.js",
     "text!app/templates/driver.html",
     "i18n!app/nls/driver",
     "css!app/templates/driver.css"

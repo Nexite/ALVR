@@ -2,7 +2,7 @@ define([
     "text!app/templates/addClientModal.html",
     "text!app/templates/monitor.html",
     "json!../../session",
-    "lib/lodash",
+    "js/lib/lodash.js",
     "i18n!app/nls/monitor",
     "i18n!app/nls/notifications",
     "json!app/resources/descriptors/OculusQuest.json",

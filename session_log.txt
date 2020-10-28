@@ -1,0 +1,93 @@
+18:13:15.923293500 [INFO] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\server.rs:133: listening on http://0.0.0.0:8082
+18:13:21.810420100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:13:21.811079000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:13:21.811228500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:13:21.811955200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:13:21.821049500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:13:21.821283000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:13:21.821641900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:13:22.476127000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:13:22.476613600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:13:22.476802700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:13:22.487322600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:13:22.504202000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:13:22.505427500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:13:22.506041500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:13:22.714780300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:13:22.715140500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:13:22.715279200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:13:22.715703600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:13:22.716201400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:13:22.726539100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:13:22.727272800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:13:42.345310200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:13:42.346017700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:13:42.348891900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:13:42.349432800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:13:42.349818900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:13:42.350189300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:13:42.350456900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:13:43.084425400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:13:43.084961200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:13:43.085123800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:13:43.085677400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:13:43.086131900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:13:43.097619000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:13:43.098973800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:15:20.084293200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 0 bytes 
+18:15:20.084693800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:208: read eof 
+18:19:25.086663600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 0 bytes 
+18:19:25.087072000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:208: read eof 
+18:50:23.189104900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 531 bytes 
+18:50:23.193502100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 11 headers 
+18:50:23.205027800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:23.206313400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:23.208748700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:23.210946900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:23.211692900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:24.695495000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:24.696314700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:24.696510600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:24.696885900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:24.697225100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:24.698254000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:24.698536200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:24.831474300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:24.831878300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:24.832014300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:24.832346700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:24.832689000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:24.832836800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:24.833703700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:25.203308700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:25.203998900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:25.204256000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:25.205061400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:25.207572500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:25.207891300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:25.208999200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:25.381463500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:25.381875200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:25.382022300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:25.382372900 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:25.382727400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:25.382881100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:25.383801700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:25.928667600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:25.929092300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:25.929274200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:25.929712200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:25.930119700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:25.931011800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:25.931252300 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:26.307213500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 563 bytes 
+18:50:26.307900600 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:167: parsed 12 headers 
+18:50:26.308131700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:158: incoming body is empty 
+18:50:26.308856000 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\index.html"
+18:50:26.310290700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filters\fs.rs:242: file not found: "web_gui\\"
+18:50:26.310503400 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\warp-0.2.3\src\filter\service.rs:132: rejected: Rejection(NotFound)
+18:50:26.310750800 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:229: flushed 82 bytes 
+18:50:27.498588500 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 0 bytes 
+18:50:27.499707700 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:208: read eof 
+18:50:27.501074100 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\io.rs:193: read 0 bytes 
+18:50:27.502885200 [DEBUG] At C:\Users\nikhi\.cargo\bin\registry\src\github.com-1ecc6299db9ec823\hyper-0.13.8\src\proto\h1\conn.rs:208: read eof 

@@ -191,7 +191,7 @@ pub fn build_server(is_release: bool, fetch_crates: bool) -> BResult {
 
     let target_dir = target_dir();
     let artifacts_dir = target_dir.join(build_type);
-    let driver_dst_dir = server_build_dir().join("bin").join(STEAMVR_OS_DIR_NAME);
+    let driver_dst_dir = server_build_dir().join("alvr_driver/bin").join(STEAMVR_OS_DIR_NAME);
     let swresample_dir = workspace_dir().join("alvr/server_driver/cpp/libswresample/lib");
     let openvr_api_dir = workspace_dir().join("alvr/server_driver/cpp/openvr/lib");
 

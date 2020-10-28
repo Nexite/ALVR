@@ -2,8 +2,8 @@ use serde::{Deserialize, Serialize};
 
 pub type StrResult<T = ()> = Result<T, String>;
 
-pub const SESSION_LOG_FNAME: &str = "session_log.txt";
-pub const CRASH_LOG_FNAME: &str = "crash_log.txt";
+pub const SESSION_LOG_FNAME: &str = "logs/session_log.txt";
+pub const CRASH_LOG_FNAME: &str = "logs/crash_log.txt";
 
 pub fn driver_log_path() -> std::path::PathBuf {
     std::env::temp_dir().join("alvr_driver_log.txt")

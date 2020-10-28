@@ -2,7 +2,7 @@ define([
     "json!../../settings-schema",
     "json!../../session",
     "app/customSettings",
-    "lib/lodash",
+    "js/lib/lodash.js",
     "i18n!app/nls/settings",
     "i18n!app/nls/revertRestart",
     "text!app/templates/revertConfirm.html",

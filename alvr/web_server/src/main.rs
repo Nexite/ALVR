@@ -22,9 +22,18 @@ use warp::{
     reply,
     ws::{Message, WebSocket, Ws},
     Filter,
+    path::Tail,
+    reply::Response,
+    Reply,
+    Rejection,
+    http::header::HeaderValue,
 };
+use rust_embed::RustEmbed;
 
-const WEB_GUI_DIR_STR: &str = "web_gui";
+#[derive(RustEmbed)]
+#[folder = "web_gui"]
+struct Asset;
+
 const WEB_SERVER_PORT: u16 = 8082;
 
 fn align32(value: f32) -> u32 {
@@ -228,10 +237,8 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
             })
             .collect(),
     );
-
-    let web_gui_dir = PathBuf::from(WEB_GUI_DIR_STR);
-    let index_request = warp::path::end().and(wfs::file(web_gui_dir.join("index.html")));
-    let files_requests = wfs::dir(web_gui_dir);
+    let index_request = warp::path::end().and_then(serve_index);
+    let files_request = warp::any().and(warp::path::tail()).and_then(serve_files);
 
     let settings_schema_request = warp::path("settings-schema").map(|| env!("SETTINGS_SCHEMA"));
 
@@ -273,7 +280,7 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
     let driver_registration_requests = warp::path("driver").and(
         warp::path("register")
             .map(|| {
-                if driver_registration(&alvr_server_dir(), true).is_ok() {
+                if driver_registration(&alvr_server_dir().join("alvr_driver"), true).is_ok() {
                     reply::with_status(reply(), StatusCode::OK)
                 } else {
                     reply::with_status(reply(), StatusCode::INTERNAL_SERVER_ERROR)
@@ -330,6 +337,7 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
 
     warp::serve(
         index_request
+            .or(files_request)
             .or(settings_schema_request)
             .or(session_requests)
             .or(log_subscription)
@@ -337,7 +345,6 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
             .or(firewall_rules_requests)
             .or(graphics_devices_request)
             .or(audio_devices_request)
-            .or(files_requests)
             .or(restart_steamvr_request)
             .or(version_request)
             .or(open_link_request)
@@ -354,6 +361,15 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
     Ok(())
 }
 
+async fn serve_index() -> Result<impl Reply, Rejection> {
+    serve_impl("index.html")
+}
+  
+async fn serve_files(path: Tail) -> Result<impl Reply, Rejection> {
+    serve_impl(path.as_str())
+}
+  
+
 #[tokio::main]
 async fn main() {
     let mutex = single_instance::SingleInstance::new("alvr_web_server_mutex").unwrap();
@@ -363,4 +379,13 @@ async fn main() {
 
         show_err(run(log_senders).await).ok();
     }
+}
+
+fn serve_impl(path: &str) -> Result<impl Reply, Rejection> {
+    let asset = Asset::get(path).ok_or_else(warp::reject::not_found)?;
+    let mime = mime_guess::from_path(path).first_or_octet_stream();
+
+    let mut res = Response::new(asset.into());
+    res.headers_mut().insert("content-type", HeaderValue::from_str(mime.as_ref()).unwrap());
+    Ok(res)
 }
