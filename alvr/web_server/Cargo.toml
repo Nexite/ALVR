@@ -26,6 +26,8 @@ rust-embed-utils = "5.0.0"
 rust-embed-impl = "5.6.0"
 walkdir = "2.3.1"
 mime_guess = '2.0.3'
+alcro = '^0.3.3'
+sysinfo = '^0.15.0'
 
 [features]
 debug-embed = ["rust-embed-impl/debug-embed", "rust-embed-utils/debug-embed"]
@@ -34,3 +36,6 @@ interpolate-folder-path = ["rust-embed-impl/interpolate-folder-path"]
 [build-dependencies]
 serde_json = '^1.0'
 alvr_common = { path = '../common' }
+
+[target.'cfg(windows)'.build-dependencies]
+winres = '^0.1.11'

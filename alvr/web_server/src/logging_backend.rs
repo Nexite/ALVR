@@ -1,3 +1,4 @@
+#![windows_subsystem = "windows"]
 use alvr_common::logging::*;
 use fern::{log_file, Dispatch};
 use log::LevelFilter;

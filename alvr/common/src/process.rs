@@ -110,6 +110,7 @@ pub fn maybe_launch_steamvr() {
     {
         Command::new("cmd")
             .args(&["/C", "start", "steam://run/250820"])
+            .creation_flags(CREATE_NO_WINDOW)
             .spawn()
             .ok();
     }
@@ -145,6 +146,7 @@ pub fn driver_registration(root_server_dir: &Path, register: bool) -> StrResult 
 
     let exit_status = trace_err!(Command::new(exec)
         .args(&[subcommand, &root_server_dir.to_string_lossy()])
+        .creation_flags(CREATE_NO_WINDOW)
         .status())?;
 
     if exit_status.success() {
@@ -222,7 +224,8 @@ pub fn firewall_rules(root_server_dir: &Path, add: bool) -> Result<(), i32> {
 
 pub fn get_registered_drivers() -> StrResult<Vec<PathBuf>> {
     let output =
-        trace_err!(Command::new(steamvr_bin_dir()?.join(exec_fname("vrpathreg"))).output())?;
+        trace_err!(Command::new(steamvr_bin_dir()?.join(exec_fname("vrpathreg")))
+        .creation_flags(CREATE_NO_WINDOW).output())?;
     let output = String::from_utf8_lossy(&output.stdout);
 
     let dirs = trace_err!(regex::Regex::new(r"\t([^\t\r\n]*)"))?
@@ -235,8 +238,11 @@ pub fn get_registered_drivers() -> StrResult<Vec<PathBuf>> {
 
 pub fn get_alvr_dir() -> StrResult<PathBuf> {
     for dir in get_registered_drivers()? {
-        if dir.join(exec_fname("ALVR")).exists() && dir.join("web_gui").exists() {
+        if dir.join(exec_fname("ALVR")).exists() {
             return Ok(dir);
+        }
+        if dir.parent().unwrap().join(exec_fname("ALVR")).exists() {
+            return Ok(dir.parent().unwrap().to_path_buf());
         }
     }
 

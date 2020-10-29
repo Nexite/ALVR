@@ -61,7 +61,7 @@ pub unsafe extern "C" fn HmdDriverFactory(
         Ok(alvr_dir) => {
             // launch web server
             process::maybe_launch_web_server(&alvr_dir);
-
+            
             let alvr_dir_c_string = CString::new(alvr_dir.to_string_lossy().to_string()).unwrap();
             g_alvrDir = alvr_dir_c_string.into_raw();
         }

@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 mod logging_backend;
 mod sockets;
 mod tail;
@@ -10,11 +12,15 @@ use std::{
     path::PathBuf,
     sync::{Arc, Mutex},
     time::SystemTime,
+    process,
+    process::*,
 };
+use sysinfo::*;
 use tail::tail_stream;
 use tokio::{
     stream::StreamExt,
     sync::mpsc::{self, *},
+    task,
 };
 use warp::{
     body, fs as wfs,
@@ -33,6 +39,12 @@ use rust_embed::RustEmbed;
 #[derive(RustEmbed)]
 #[folder = "web_gui"]
 struct Asset;
+
+#[cfg(windows)]
+pub const CREATE_NO_WINDOW: u32 = 0x0800_0000;
+
+#[cfg(windows)]
+use std::os::windows::process::CommandExt;
 
 const WEB_SERVER_PORT: u16 = 8082;
 
@@ -280,7 +292,7 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
     let driver_registration_requests = warp::path("driver").and(
         warp::path("register")
             .map(|| {
-                if driver_registration(&alvr_server_dir().join("alvr_driver"), true).is_ok() {
+                if driver_registration(&alvr_server_dir().join("driver"), true).is_ok() {
                     reply::with_status(reply(), StatusCode::OK)
                 } else {
                     reply::with_status(reply(), StatusCode::INTERNAL_SERVER_ERROR)
@@ -369,6 +381,23 @@ async fn serve_files(path: Tail) -> Result<impl Reply, Rejection> {
     serve_impl(path.as_str())
 }
   
+fn run_window(){
+    let window = alcro::UIBuilder::new()
+    .content(alcro::Content::Url("http://127.0.0.1:8082"))
+    .size(800, 600)
+    .run().unwrap();
+
+    window.wait_finish();
+    let mut system = System::new_with_specifics(RefreshKind::new().with_processes());
+    system.refresh_processes();
+    for process in system.get_process_by_name(&exec_fname("alvr_web_server")) {
+        #[cfg(not(windows))]
+        process.kill(Signal::Term);
+        #[cfg(windows)]
+        kill_process(process.pid());
+    }
+}
+
 
 #[tokio::main]
 async fn main() {
@@ -376,7 +405,9 @@ async fn main() {
     if mutex.is_single() {
         let log_senders = Arc::new(Mutex::new(vec![]));
         init_logging(log_senders.clone());
-
+        task::spawn_blocking(|| {
+            run_window()
+        });
         show_err(run(log_senders).await).ok();
     }
 }
@@ -388,4 +419,13 @@ fn serve_impl(path: &str) -> Result<impl Reply, Rejection> {
     let mut res = Response::new(asset.into());
     res.headers_mut().insert("content-type", HeaderValue::from_str(mime.as_ref()).unwrap());
     Ok(res)
+}
+
+#[cfg(windows)]
+fn kill_process(pid: usize) {
+    Command::new("taskkill.exe")
+        .args(&["/PID", &pid.to_string(), "/F"])
+        .creation_flags(CREATE_NO_WINDOW)
+        .output()
+        .ok();
 }
