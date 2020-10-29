@@ -125,7 +125,6 @@ dependencies = [
  "serde_json",
  "settings-schema",
  "single-instance",
- "sysinfo",
  "tokio",
  "walkdir",
  "warp",

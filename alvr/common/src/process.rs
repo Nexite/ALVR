@@ -60,7 +60,7 @@ fn kill_process(pid: usize) {
 
 // Launch web server. If another instance exists, the one just spawned will close itself.
 pub fn maybe_launch_web_server(root_server_dir: &Path) {
-    let mut command = Command::new(root_server_dir.join("alvr_web_server"));
+    let mut command = Command::new(root_server_dir.join("ALVR"));
 
     // somehow the console is always empty, so it's useless
     #[cfg(windows)]
@@ -81,7 +81,7 @@ pub fn maybe_kill_web_server() {
         for process in system.get_processes().values() {
             if let Some(parent_pid) = process.parent() {
                 if let Some(parent_proc) = system.get_process(parent_pid) {
-                    if parent_proc.name() == exec_fname("alvr_web_server") {
+                    if parent_proc.name() == exec_fname("ALVR") {
                         // Using built-in method causes cmd to pop up repeatedly on Windows
                         #[cfg(not(windows))]
                         process.kill(Signal::Term);
@@ -91,7 +91,7 @@ pub fn maybe_kill_web_server() {
                 }
             }
         }
-        for process in system.get_process_by_name(&exec_fname("alvr_web_server")) {
+        for process in system.get_process_by_name(&exec_fname("ALVR")) {
             #[cfg(not(windows))]
             process.kill(Signal::Term);
             #[cfg(windows)]
@@ -176,7 +176,7 @@ fn netsh_delete_rule_command_string(rule_name: &str) -> String {
 // other: command failed
 pub fn firewall_rules(root_server_dir: &Path, add: bool) -> Result<(), i32> {
     let script_path = env::temp_dir().join("alvr_firewall_rules.bat");
-    let web_server_path = root_server_dir.join(exec_fname("alvr_web_server"));
+    let web_server_path = root_server_dir.join(exec_fname("ALVR"));
 
     let firewall_rules_script_content = if add {
         format!(

@@ -12,10 +12,7 @@ use std::{
     path::PathBuf,
     sync::{Arc, Mutex},
     time::SystemTime,
-    process,
-    process::*,
 };
-use sysinfo::*;
 use tail::tail_stream;
 use tokio::{
     stream::StreamExt,
@@ -37,15 +34,13 @@ use warp::{
 use rust_embed::RustEmbed;
 
 #[derive(RustEmbed)]
-#[folder = "web_gui"]
+#[folder = "./../../server_release_template/web_gui"]
 struct Asset;
 
 #[cfg(windows)]
 pub const CREATE_NO_WINDOW: u32 = 0x0800_0000;
 
-#[cfg(windows)]
-use std::os::windows::process::CommandExt;
-
+const WEB_GUI_DIR_STR: &str = "web_gui";
 const WEB_SERVER_PORT: u16 = 8082;
 
 fn align32(value: f32) -> u32 {
@@ -249,6 +244,11 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
             })
             .collect(),
     );
+
+    let web_gui_dir = PathBuf::from(WEB_GUI_DIR_STR);
+    let local_index_request = warp::path::end().and(wfs::file(web_gui_dir.join("index.html")));
+    let local_files_request
+     = wfs::dir(web_gui_dir);
     let index_request = warp::path::end().and_then(serve_index);
     let files_request = warp::any().and(warp::path::tail()).and_then(serve_files);
 
@@ -348,7 +348,9 @@ async fn run(log_senders: Arc<Mutex<Vec<UnboundedSender<String>>>>) -> StrResult
     });
 
     warp::serve(
-        index_request
+        local_index_request
+            .or(index_request)
+            .or(local_files_request)
             .or(files_request)
             .or(settings_schema_request)
             .or(session_requests)
@@ -380,7 +382,7 @@ async fn serve_index() -> Result<impl Reply, Rejection> {
 async fn serve_files(path: Tail) -> Result<impl Reply, Rejection> {
     serve_impl(path.as_str())
 }
-  
+
 fn run_window(){
     let window = alcro::UIBuilder::new()
     .content(alcro::Content::Url("http://127.0.0.1:8082"))
@@ -388,14 +390,7 @@ fn run_window(){
     .run().unwrap();
 
     window.wait_finish();
-    let mut system = System::new_with_specifics(RefreshKind::new().with_processes());
-    system.refresh_processes();
-    for process in system.get_process_by_name(&exec_fname("alvr_web_server")) {
-        #[cfg(not(windows))]
-        process.kill(Signal::Term);
-        #[cfg(windows)]
-        kill_process(process.pid());
-    }
+    maybe_kill_web_server();
 }
 
 
@@ -419,13 +414,4 @@ fn serve_impl(path: &str) -> Result<impl Reply, Rejection> {
     let mut res = Response::new(asset.into());
     res.headers_mut().insert("content-type", HeaderValue::from_str(mime.as_ref()).unwrap());
     Ok(res)
-}
-
-#[cfg(windows)]
-fn kill_process(pid: usize) {
-    Command::new("taskkill.exe")
-        .args(&["/PID", &pid.to_string(), "/F"])
-        .creation_flags(CREATE_NO_WINDOW)
-        .output()
-        .ok();
 }

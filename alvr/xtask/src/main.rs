@@ -202,8 +202,12 @@ pub fn build_server(is_release: bool, fetch_crates: bool) -> BResult {
         run("cargo update")?;
     }
 
+    // run(&format!(
+    //     "cargo build -p alvr_server_driver -p alvr_web_server -p alvr_server_bootstrap {}",
+    //     build_flag
+    // ))?;
     run(&format!(
-        "cargo build -p alvr_server_driver -p alvr_web_server -p alvr_server_bootstrap {}",
+        "cargo build -p alvr_server_driver -p alvr_web_server {}",
         build_flag
     ))?;
     fs::copy(
@@ -224,12 +228,12 @@ pub fn build_server(is_release: bool, fetch_crates: bool) -> BResult {
     )?;
     fs::copy(
         artifacts_dir.join(exec_fname("alvr_web_server")),
-        server_build_dir().join(exec_fname("alvr_web_server")),
-    )?;
-    fs::copy(
-        artifacts_dir.join(exec_fname("alvr_server_bootstrap")),
         server_build_dir().join(exec_fname("ALVR")),
     )?;
+    // fs::copy(
+    //     artifacts_dir.join(exec_fname("alvr_server_bootstrap")),
+    //     server_build_dir().join(exec_fname("ALVR")),
+    // )?;
 
     // if cfg!(target_os = "linux") {
     //     use std::io::Write;
