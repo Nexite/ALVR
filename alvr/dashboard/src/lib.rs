@@ -1,6 +1,7 @@
 // during development
 #![allow(dead_code)]
 
+mod menus;
 mod basic_components;
 mod dashboard;
 mod events_listener;
@@ -47,7 +48,6 @@ fn root() -> Html {
                 wasm_bindgen_futures::spawn_local(async move {
                     logging::show_err_async(async {
                         let initial_session = session::fetch_session().await?;
-
                         let translation_manager = translation::TranslationManager::new(
                             initial_session.to_settings().extra.language,
                         )

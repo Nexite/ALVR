@@ -2,13 +2,17 @@ use crate::{
     basic_components::{
         Button, ButtonGroup, ButtonType, Select, Slider, Switch, TextField, UpDown,
     },
+    menus::SettingsMenu,
     translation::use_trans,
 };
-use alvr_common::{data::SessionDesc, logging::Event, prelude::*};
+use alvr_common::{
+    data::session_settings_default, data::SessionDesc, data::Settings, logging::Event, prelude::*,
+};
+use settings_schema::SchemaNode;
 use std::{cell::RefCell, rc::Rc};
 use yew::{html, Callback, Properties};
 use yew_functional::{function_component, use_state};
-
+use serde_json as json;
 #[derive(Properties, Clone, PartialEq)]
 pub struct DashboardProps {
     pub events_callback_ref: Rc<RefCell<Callback<Event>>>,
@@ -18,6 +22,15 @@ pub struct DashboardProps {
 #[function_component(Dashboard)]
 pub fn dashboard(props: &DashboardProps) -> Html {
     *props.events_callback_ref.borrow_mut() = Callback::from(|event| ());
+    let session = props.session.clone();
+    let settings = session.to_settings();
+    let schema = Settings::schema(session_settings_default());
+    log::info!(
+        "{}",
+        session.session_settings.video.preferred_fps.to_string()
+    );
+    log::info!("{:?}", schema);
+    println!("{:?}", schema);
 
     let (selected_tab, set_selected_tab) = use_state(|| "connect".to_owned());
 
@@ -83,6 +96,9 @@ pub fn dashboard(props: &DashboardProps) -> Html {
             <div class="flex-grow">
                 <div hidden=*selected_tab!="connect">
                     <Test />
+                </div>
+                <div hidden=*selected_tab!="settings">
+                    <SettingsMenu session=session />
                 </div>
             </div>
         </div>
@@ -153,12 +169,14 @@ pub fn menu_icon(props: &MenuIconProps) -> Html {
 #[function_component(Test)]
 pub fn test() -> Html {
     let (label, set_label) = use_state(|| "Hello".to_owned());
+    let (bitrate_value_1, set_bitrate_value_1) = use_state(|| "123".to_owned());
+    let (bitrate_value_2, set_bitrate_value_2) = use_state(|| "123".to_owned());
 
     let on_click = {
         let label = Rc::clone(&label);
         Callback::from(move |_| set_label(format!("{} world", label)))
     };
-
+    let test = "teststring".to_owned();
     let default_string = use_trans("default");
 
     let switch_on_click = Callback::from(move |_| ());
@@ -168,8 +186,11 @@ pub fn test() -> Html {
     let on_select = Callback::from(move |_| ());
 
     let text_field_on_focus_lost = Callback::from(move |_| ());
+    let number_field_on_focus_lost = Callback::from(move |_| ());
 
-    let up_down_on_step = Callback::from(move |_| ());
+    // let up_down_on_step = Callback::from(move |_| ());
+    let on_step_down = Callback::from(move |value| log::info!("step down, value: {}", value));
+    let on_step_up = Callback::from(move |value| log::info!("step up, value: {}", value));
 
     html! {
         <div class="px-4 py-3">
@@ -184,7 +205,7 @@ pub fn test() -> Html {
                     {label.clone()}
                 </Button>
                 <Button on_click=on_click button_type=ButtonType::Danger>
-                    {label}
+                    {label.clone()}
                 </Button>
             </div>
             <Switch on_click=switch_on_click checked=true/>
@@ -212,17 +233,20 @@ pub fn test() -> Html {
             </div>
             <div class="py-2 space-y-2">
                 <UpDown
-                    label="Bitrate"
-                    value="123"
-                    on_focus_lost=text_field_on_focus_lost.clone()
-                    on_step_down=up_down_on_step.clone()
-                    on_step_up=up_down_on_step.clone()
+                    label="1 step"
+                    value="1"
+                    step="1"
+                    on_focus_lost=number_field_on_focus_lost.clone()
+                    on_step_down=on_step_down.clone()
+                    on_step_up=on_step_up.clone()
                 />
                 <UpDown
-                    value="123"
-                    on_focus_lost=text_field_on_focus_lost
-                    on_step_down=up_down_on_step.clone()
-                    on_step_up=up_down_on_step
+                    label="5 step"
+                    value="1"
+                    step="5"
+                    on_focus_lost=number_field_on_focus_lost
+                    on_step_down=on_step_down.clone()
+                    on_step_up=on_step_up
                 />
             </div>
         </div>
