@@ -109,6 +109,7 @@ dependencies = [
  "rand",
  "serde",
  "serde_json",
+ "settings-schema 0.3.1",
  "settings-schema 0.3.1 (git+https://github.com/alvr-org/ALVR?rev=08708f19b2ec70264e2ba2b0adfaa64bd96489bd)",
  "tokio",
  "walkdir",
@@ -3592,6 +3593,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ea6a9290e3c9cf0f18145ef7ffa62d68ee0bf5fcd651017e586dc7fd5da448c2"
 
 [[package]]
+name = "scoped-tls-hkt"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c2e9d7eaddb227e8fbaaa71136ae0e1e913ca159b86c7da82f3e8f0044ad3a63"
+
+[[package]]
 name = "scopeguard"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4975,7 +4982,7 @@ dependencies = [
 [[package]]
 name = "yew"
 version = "0.17.4"
-source = "git+https://github.com/yewstack/yew#3e13321751cd4da75079041b17df30ad9338517b"
+source = "git+https://github.com/yewstack/yew#0bd3b759c66d5740656706a89545865ec41d5c67"
 dependencies = [
  "anyhow",
  "anymap",
@@ -4999,8 +5006,9 @@ dependencies = [
 [[package]]
 name = "yew-functional"
 version = "0.13.0"
-source = "git+https://github.com/yewstack/yew#3e13321751cd4da75079041b17df30ad9338517b"
+source = "git+https://github.com/yewstack/yew#0bd3b759c66d5740656706a89545865ec41d5c67"
 dependencies = [
+ "scoped-tls-hkt",
  "wasm-bindgen",
  "yew",
  "yew-functional-macro",
@@ -5009,7 +5017,7 @@ dependencies = [
 [[package]]
 name = "yew-functional-macro"
 version = "0.1.0"
-source = "git+https://github.com/yewstack/yew#3e13321751cd4da75079041b17df30ad9338517b"
+source = "git+https://github.com/yewstack/yew#0bd3b759c66d5740656706a89545865ec41d5c67"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -5019,7 +5027,7 @@ dependencies = [
 [[package]]
 name = "yew-macro"
 version = "0.17.0"
-source = "git+https://github.com/yewstack/yew#3e13321751cd4da75079041b17df30ad9338517b"
+source = "git+https://github.com/yewstack/yew#0bd3b759c66d5740656706a89545865ec41d5c67"
 dependencies = [
  "boolinator",
  "lazy_static",
